@@ -24,6 +24,11 @@ const Home = () => {
 		setIsSearchOpen((prev) => !prev);
 	};
 
+	const onClose = () => {
+		setSearchQuery("");
+		toggleSearch();
+	};
+
 	const handleSearch = () => {
 		// Filter watch items based on the search query
 		const filteredItems = watchItems.filter((item) =>
@@ -102,7 +107,7 @@ const Home = () => {
 						onChangeText={setSearchQuery}
 						onSubmitEditing={handleSearch} // Trigger search on Enter
 					/>
-					<TouchableOpacity onPress={toggleSearch}>
+					<TouchableOpacity onPress={onClose}>
 						<Ionicons name="close" size={24} color="#B31312" />
 					</TouchableOpacity>
 				</View>
